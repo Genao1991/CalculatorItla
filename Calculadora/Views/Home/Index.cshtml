@@ -39,7 +39,7 @@
 
             <input type="button" value=" c " onclick="calculator.answer.value = ''" />
             <input type="button" value=" 0 " onclick="calculator.answer.value += '0'" />
-            <input type="button" value=" = " onclick="calculator.answer.value = eval(calculator.answer.value)" ; />
+            <input type="button" value=" = " onclick="calculator.answer.value = completeEval(calculator.answer.value);" />
             <input type="button" value=" / " onclick="calculator.answer.value += '/'" />
             </br>
 
@@ -48,12 +48,18 @@
         <div id="agh">
             <p> Tarea 5 Anthony Genao</p>
         </div>
-         </div>
-    
-    <div id="History_box">
-        <ul>
-           
-        </ul>
     </div>
+
+    <div id="History_box">
+        <ul style="list-style-type: none" id="historyBoxList"></ul>
+    </div>
+
+    <script>
+        function completeEval(calculatorValue) {
+            var list = document.getElementById("historyBoxList");
+            list.innerHTML += ('<li>' + calculatorValue + '</li>');
+            return eval(calculatorValue);
+        }
+    </script>
 </body>
 </html>
